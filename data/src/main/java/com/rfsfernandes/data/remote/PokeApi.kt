@@ -1,6 +1,9 @@
 package com.rfsfernandes.data.remote
 
+import com.rfsfernandes.data.remote.dto.PokemonListResponse
+import com.rfsfernandes.data.remote.dto.pokemon.PokemonDto
 import okhttp3.ResponseBody
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -10,14 +13,13 @@ import retrofit2.http.Query
  * Created 18/03/2023 at 17:20
  */
 interface PokeApi {
-    @GET("pokemon")
+    @GET("pokemon?offset=0")
     suspend fun getPokemonListPagination(
-        @Query("offset") offeset: Int,
         @Query("limit") limit: Int
-    ): ResponseBody
+    ): Response<PokemonListResponse>
 
     @GET("pokemon/{pokemonId}")
-    suspend fun getPokemonById(@Path("pokemonId") pokemonId: Int): ResponseBody
+    suspend fun getPokemonById(@Path("pokemonId") pokemonId: Int): Response<PokemonDto>
 
     @GET("pokemon-species/{pokemonId}")
     suspend fun getPokemonSpeciesById(@Path("pokemonId") pokemonId: Int): ResponseBody

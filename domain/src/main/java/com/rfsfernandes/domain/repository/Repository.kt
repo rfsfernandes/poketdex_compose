@@ -1,5 +1,7 @@
 package com.rfsfernandes.domain.repository
 
+import com.rfsfernandes.domain.model.Pokemon
+import com.rfsfernandes.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -8,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
  */
 interface Repository {
 
-    fun getPokemons(): Flow<Nothing>
+    fun getPokemons(): Flow<Resource<List<Pokemon>>>
     fun getPokemonById(id: Int): Flow<Nothing>
     fun getSpeciesById(id: Int): Flow<Nothing>
     fun getTypeById(id: Int): Flow<Nothing>

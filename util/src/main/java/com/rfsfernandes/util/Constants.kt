@@ -1,4 +1,4 @@
-package com.rfsfernandes.data.util
+package com.rfsfernandes.util
 
 /**
  * @author RodrigoFernandes

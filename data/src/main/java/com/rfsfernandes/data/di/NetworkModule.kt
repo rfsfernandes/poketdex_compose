@@ -1,7 +1,7 @@
 package com.rfsfernandes.data.di
 
 import com.rfsfernandes.data.remote.PokeApi
-import com.rfsfernandes.data.util.BASE_URL
+import com.rfsfernandes.util.BASE_URL
 import com.rfsfernandes.domain.repository.Repository
 import com.rfsfernandes.domain.use_cases.*
 import com.squareup.moshi.Moshi
@@ -9,7 +9,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -29,7 +28,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(moshi: Moshi): Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(com.rfsfernandes.util.BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 
